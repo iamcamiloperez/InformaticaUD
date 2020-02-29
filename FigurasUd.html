@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:4200/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>FigurasUd</title>
+  <!--<base href="/">--><base href=".">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<style>body{
+    background-color: rgb(224, 224, 224);
+}
+
+h3{
+    background-color: rgb(41, 122, 189);
+    padding: 5px;
+    color: white;
+}
+
+h4{
+    color: black;
+    margin: 5px 7%;
+}
+
+.alert-light{
+    margin: 15px 7%;
+}
+
+.figura{
+    background-color: rgb(41, 122, 189); 
+}
+
+.circle{
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.triangle{
+    width: 0;
+    height: 0;    
+    background-color: transparent;
+    margin: 0 auto;
+}
+
+.square{
+    margin: 0 auto;
+}
+
+.rectangle{
+    margin: 0 auto;
+}
+
+a {
+    cursor: pointer;
+    height: 100%;    
+}
+
+a > div {
+    background-color: rgb(168, 208, 209);
+    width: 50px;
+    height: 50px;    
+}
+
+a > .triangle{
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-top: 25px solid transparent; 
+    border-left: 25px solid rgb(168, 208, 209);
+    border-bottom: 25px solid rgb(168, 208, 209);
+}
+
+a > .rectangle{    
+    width: 30px;    
+}
+
+.active{
+    background-color:rgb(57, 127, 160);    
+}
+
+.activeTriangle{
+    border-left: 25px solid rgb(57, 127, 160) !important;
+    border-bottom: 25px solid rgb(57, 127, 160) !important;
+}
+
+.result{
+    min-height: 270px;
+    height: auto;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0ksbUNBQW1DO0lBQ25DLFlBQVk7SUFDWixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxlQUFlO0FBQ25COztBQUVBO0lBQ0ksbUNBQW1DO0FBQ3ZDOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxRQUFRO0lBQ1IsU0FBUztJQUNULDZCQUE2QjtJQUM3QixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksY0FBYztBQUNsQjs7QUFFQTtJQUNJLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsWUFBWTtBQUNoQjs7QUFFQTtJQUNJLG9DQUFvQztJQUNwQyxXQUFXO0lBQ1gsWUFBWTtBQUNoQjs7QUFFQTtJQUNJLFVBQVU7SUFDVixXQUFXO0lBQ1gsb0NBQW9DO0lBQ3BDLGtDQUFrQztJQUNsQywwQ0FBMEM7SUFDMUMsNENBQTRDO0FBQ2hEOztBQUVBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksa0NBQWtDO0FBQ3RDOztBQUVBO0lBQ0ksb0RBQW9EO0lBQ3BELHNEQUFzRDtBQUMxRDs7QUFFQTtJQUNJLGlCQUFpQjtJQUNqQixZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9zdHlsZXMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keXtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjI0LCAyMjQsIDIyNCk7XG59XG5cbmgze1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYig0MSwgMTIyLCAxODkpO1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBjb2xvcjogd2hpdGU7XG59XG5cbmg0e1xuICAgIGNvbG9yOiBibGFjaztcbiAgICBtYXJnaW46IDVweCA3JTtcbn1cblxuLmFsZXJ0LWxpZ2h0e1xuICAgIG1hcmdpbjogMTVweCA3JTtcbn1cblxuLmZpZ3VyYXtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoNDEsIDEyMiwgMTg5KTsgXG59XG5cbi5jaXJjbGV7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIG1hcmdpbjogMCBhdXRvO1xufVxuXG4udHJpYW5nbGV7XG4gICAgd2lkdGg6IDA7XG4gICAgaGVpZ2h0OiAwOyAgICBcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICBtYXJnaW46IDAgYXV0bztcbn1cblxuLnNxdWFyZXtcbiAgICBtYXJnaW46IDAgYXV0bztcbn1cblxuLnJlY3RhbmdsZXtcbiAgICBtYXJnaW46IDAgYXV0bztcbn1cblxuYSB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGhlaWdodDogMTAwJTsgICAgXG59XG5cbmEgPiBkaXYge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxNjgsIDIwOCwgMjA5KTtcbiAgICB3aWR0aDogNTBweDtcbiAgICBoZWlnaHQ6IDUwcHg7ICAgIFxufVxuXG5hID4gLnRyaWFuZ2xle1xuICAgIHdpZHRoOiAwcHg7XG4gICAgaGVpZ2h0OiAwcHg7XG4gICAgYm9yZGVyLXJpZ2h0OiAyNXB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7IFxuICAgIGJvcmRlci1sZWZ0OiAyNXB4IHNvbGlkIHJnYigxNjgsIDIwOCwgMjA5KTtcbiAgICBib3JkZXItYm90dG9tOiAyNXB4IHNvbGlkIHJnYigxNjgsIDIwOCwgMjA5KTtcbn1cblxuYSA+IC5yZWN0YW5nbGV7ICAgIFxuICAgIHdpZHRoOiAzMHB4OyAgICBcbn1cblxuLmFjdGl2ZXtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOnJnYig1NywgMTI3LCAxNjApOyAgICBcbn1cblxuLmFjdGl2ZVRyaWFuZ2xle1xuICAgIGJvcmRlci1sZWZ0OiAyNXB4IHNvbGlkIHJnYig1NywgMTI3LCAxNjApICFpbXBvcnRhbnQ7XG4gICAgYm9yZGVyLWJvdHRvbTogMjVweCBzb2xpZCByZ2IoNTcsIDEyNywgMTYwKSAhaW1wb3J0YW50O1xufVxuXG4ucmVzdWx0e1xuICAgIG1pbi1oZWlnaHQ6IDI3MHB4O1xuICAgIGhlaWdodDogYXV0bztcbn0iXX0= */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */</style></head>
+<body>
+  <div class="head col-12"></div>
+  <app-root _nghost-qfo-c0="" ng-version="8.2.14"><h3 _ngcontent-qfo-c0="">Figuras UD</h3><div _ngcontent-qfo-c0="" class="alert alert-light" role="alert"> Selecciona la figura que deseas graficar, luego digíta los datos solicitados para ver el resultado en pantalla
+</div><h4 _ngcontent-qfo-c0="">Figura</h4><div _ngcontent-qfo-c0="" class="alert alert-light" role="alert"><div _ngcontent-qfo-c0="" class="container"><div _ngcontent-qfo-c0="" class="row"><div _ngcontent-qfo-c0="" class="col-3"><a _ngcontent-qfo-c0="" data-target="#formModal" data-toggle="modal"><div _ngcontent-qfo-c0="" class="square" ng-reflect-klass="square" ng-reflect-ng-class="[object Object]"></div></a></div><div _ngcontent-qfo-c0="" class="col-3"><a _ngcontent-qfo-c0="" data-target="#formModal" data-toggle="modal"><div _ngcontent-qfo-c0="" class="triangle" ng-reflect-klass="triangle" ng-reflect-ng-class="[object Object]"></div></a></div><div _ngcontent-qfo-c0="" class="col-3"><a _ngcontent-qfo-c0="" data-target="#formModal" data-toggle="modal"><div _ngcontent-qfo-c0="" class="circle" ng-reflect-klass="circle" ng-reflect-ng-class="[object Object]"></div></a></div><div _ngcontent-qfo-c0="" class="col-3"><a _ngcontent-qfo-c0="" data-target="#formModal" data-toggle="modal"><div _ngcontent-qfo-c0="" class="rectangle" ng-reflect-klass="rectangle" ng-reflect-ng-class="[object Object]"></div></a></div></div></div></div><div _ngcontent-qfo-c0="" aria-hidden="true" aria-labelledby="formModalLabel" class="modal fade" id="formModal" role="dialog" tabindex="-1"><div _ngcontent-qfo-c0="" class="modal-dialog" role="document"><div _ngcontent-qfo-c0="" class="modal-content"><div _ngcontent-qfo-c0="" class="modal-header"><h5 _ngcontent-qfo-c0="" class="modal-title" id="formModalLabel"></h5><button _ngcontent-qfo-c0="" aria-label="Close" class="close" data-dismiss="modal" type="button"><span _ngcontent-qfo-c0="" aria-hidden="true">×</span></button></div><div _ngcontent-qfo-c0="" class="modal-body"><form _ngcontent-qfo-c0="" novalidate="" class="ng-untouched ng-pristine ng-valid"><div _ngcontent-qfo-c0="" class="form-group"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div _ngcontent-qfo-c0="" class="modal-footer"><button _ngcontent-qfo-c0="" class="btn btn-primary" data-dismiss="modal" type="button">Dibujar</button></div></form></div></div></div></div><div _ngcontent-qfo-c0="" class="alert alert-light result"><!--bindings={}--><br _ngcontent-qfo-c0=""><hr _ngcontent-qfo-c0=""><br _ngcontent-qfo-c0=""><div _ngcontent-qfo-c0="" class="figura Figura" ng-reflect-klass="figura" ng-reflect-ng-class="Figura" style="width: 0px; height: 0px; border-width: 0px; border-style: solid; border-color: transparent;"></div></div></app-root>
+<script
+src="./FigurasUd_files/runtime.js" type="module"></script><script src="./FigurasUd_files/polyfills.js" type="module"></script><script src="./FigurasUd_files/styles.js" type="module"></script><script src="./FigurasUd_files/vendor.js" type="module"></script><script src="./FigurasUd_files/main.js" type="module"></script>
+
+</body></html>
